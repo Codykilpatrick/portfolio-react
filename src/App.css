@@ -9,3 +9,17 @@ body {
   background-color: grey;
   align-items: center;
 }
+
+#home-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+nav {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}

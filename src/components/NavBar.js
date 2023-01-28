@@ -9,31 +9,24 @@ function NavBar() {
               Cody Kilpatrick
           </Link>
 
-          <ul>
-              <li>
-                  <Link
-                      to='/about'
-                  >
-                      About
-                  </Link>
-              </li>
+            
+          <Link
+              to='/about'
+              >
+              About
+          </Link>
 
-              <li>
-                  <Link
-                      to='/contact'
-                  >
-                      Contact
-                  </Link>
-              </li>
+          <Link
+              to='/contact'
+          >
+              Contact
+          </Link>
 
-              <li>
-                  <Link
-                      to='/projects'
-                  >
-                      Projects
-                  </Link>
-              </li>
-          </ul>
+          <Link
+              to='/projects'
+          >
+              Projects
+          </Link>
       </nav>
   )
 }
