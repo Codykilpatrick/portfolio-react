@@ -7,7 +7,7 @@ img {
 body {
   display: flex;
   background-color: grey;
-  align-items: center;
+  justify-content: center;
 }
 
 #home-div {
