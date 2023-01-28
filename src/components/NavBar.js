@@ -27,6 +27,12 @@ function NavBar() {
           >
               Projects
           </Link>
+
+          <Link
+              to='/resume'
+          >
+              Resume
+          </Link>
       </nav>
   )
 }
