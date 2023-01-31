@@ -1,5 +1,5 @@
 import projects from "../data/projects"
-
+import ProjectsList from "../components/ProjectsList"
 
 function Projects() {
   return (
@@ -7,8 +7,8 @@ function Projects() {
     <h1>Projects</h1>
     <ul>
       {projects.map(project => 
-        <li>
-          {project.title}
+        <li key={project.title}>
+          <ProjectsList project={project} />
         </li>
       )}
     </ul>
