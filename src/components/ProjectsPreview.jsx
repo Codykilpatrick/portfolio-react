@@ -1,5 +1,3 @@
-import ProjectsMain from "./ProjectsMain";
-
 const ProjectsPreview = (props) => {
   return (
     <div id="preview-container">
