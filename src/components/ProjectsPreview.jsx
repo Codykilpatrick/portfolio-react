@@ -11,10 +11,10 @@ const ProjectsPreview = (props) => {
         <h3>
             {props.project.title}
         </h3>
-				<p>{props.project.description}</p>
       </section>
       <Link
         to={`/${props.project.title}`}
+        state={props.project}
       >
         See More
       </Link>
