@@ -1,9 +1,8 @@
-import { Location, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const ProjectDetails = () => {
   const location = useLocation()
 
-  console.log(location.state);
   return (
     <>
       <h1>{location.state.title}</h1>
