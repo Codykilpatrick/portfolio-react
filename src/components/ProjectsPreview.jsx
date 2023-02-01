@@ -13,7 +13,7 @@ const ProjectsPreview = (props) => {
         </h3>
       </section>
       <Link
-        to={`/${props.project.title}`}
+        to={`/projectdetails`}
         state={props.project}
       >
         See More
