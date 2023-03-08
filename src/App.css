@@ -25,7 +25,7 @@ nav {
   justify-content: center;
 }
 
-h1#contact {
+h1 {
   text-align: center;
 }
 
@@ -38,7 +38,6 @@ h1#contact {
 
 #preview-container {
   display: flex;
-  flex-direction: column;
   align-items: center;
 }
 
@@ -69,4 +68,16 @@ a:hover {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 4%;
+}
+
+.project p {
+  margin: 5%;
 }
