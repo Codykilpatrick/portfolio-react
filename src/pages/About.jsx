@@ -1,6 +1,7 @@
 function About() {
   return (
     <>
+    <div className="about">
       <h1>About</h1>
       <p>
         Welcome! I have spent the last nine years serving the U.S Navy as a Sonar Technician on surface ships. I was on two different ships and did three deployments all to the middle-east. After that I went to two different shore facilities in Virginia and Japan!
@@ -17,6 +18,7 @@ function About() {
         <p>Cars</p>
         <p>Food</p>
         <p>Machine Learning</p>
+    </div>
     </>
   )
 }

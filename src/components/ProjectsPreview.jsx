@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const ProjectsPreview = (props) => {
   return (
     <div id="preview-container">
@@ -12,12 +10,6 @@ const ProjectsPreview = (props) => {
             {props.project.title}
         </h3>
       </section>
-      <Link
-        to={`/projectdetails`}
-        state={props.project}
-      >
-        See More
-      </Link>
     </div>
   );
 }

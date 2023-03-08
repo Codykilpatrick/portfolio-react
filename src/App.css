@@ -9,6 +9,15 @@ body {
   justify-content: center;
 }
 
+nav {
+  padding-bottom: 1rem;
+  border-bottom: 2px solid black;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 #home-div {
   display: flex;
   flex-direction: column;
@@ -16,16 +25,15 @@ body {
   justify-content: center;
 }
 
-nav {
-  margin-top: 16px;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
+h1#contact {
+  text-align: center;
 }
 
 #contact-container {
   display: flex;
-  flex-direction: column;
+  width: 100%;
+  justify-content: space-evenly;
+  margin: 2rem;
 }
 
 #preview-container {
@@ -38,4 +46,27 @@ section {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  color: white;
+}
+
+.about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+}
+
+.resume {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
