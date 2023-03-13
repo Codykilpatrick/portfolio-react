@@ -26,7 +26,7 @@ const projects =
   },
   {
     title: "Tackling Power Line faults with supervised Machine Learning",
-    description: "This is a tool that allows businesses to quickly identify and react to power line faults with the power of Supervised Machine Learning",
+    description: "The main objective of the analysis is to build a model that will determine if a power line is faulted and what type of fault it is. This project directly benefits the business by creating tripwires for response generations immediately when a fault occurs instead of waiting for an outside report. It also creates a more informed on-site technician. With knowledge of the fault type the technician is able to plan, gather appropriate tools and the required number of people. This tool also assists the plant managers. If a fault is observed, they can take immediate action on the distribution of power to ensure zero downtime for customers.",
     image: "https://i.imgur.com/SkgYh3O.png",
     repositoryLink: "https://github.com/Codykilpatrick/Supervised-ML-Classification",
     deploymentLink: "https://github.com/Codykilpatrick/Supervised-ML-Classification",
@@ -34,7 +34,7 @@ const projects =
   },
   {
     title: "Eve Marketeer",
-    description: "This is a tool that allows people who play the game Eve Online to take advantage of market oppurtunities.",
+    description: "Eve Online is a Massive Multiplayer Online Role Playing Game. Players are set in the far future and tasked with piloting spaceships to make money (ISK) and do whatever they desire. Eve online has a completely player driven market, that means everything is created and destroyed within the game with very few external injections. I wanted to create a tool that would tell players exactly what to buy and where to move it for the largest profits.",
     image: "https://i.imgur.com/q2vu8Ux.png",
     repositoryLink: "https://github.com/Codykilpatrick/Eve-marketeer",
     deploymentLink: "https://github.com/Codykilpatrick/Eve-marketeer",
