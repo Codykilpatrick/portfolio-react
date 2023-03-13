@@ -70,9 +70,9 @@ a:hover {
 
 .about {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  padding: 2rem;
+  width: 80%;
 }
 
 .resume {
@@ -100,4 +100,30 @@ a:hover {
 
 .text-container p {
   text-align: center;
+}
+
+#image-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 50%;
+}
+
+#image-container img {
+  padding: 1rem;
+}
+
+#about-text {
+  width: 50%;
+}
+
+#about-text p {
+  line-height: 4rem;
+  font-size: large;
+}
+
+#about-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
