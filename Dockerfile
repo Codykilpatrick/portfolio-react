@@ -52,10 +52,11 @@ FROM base as final
 ENV NODE_ENV production
 
 # Run the application as a non-root user.
+COPY --chown=node:node . .
 USER node
 
 # Copy package.json so that package manager commands can be used.
-COPY package.json .
+COPY --chown=node:node package.json .
 
 # Copy the production dependencies from the deps stage and also
 # the built application from the build stage into the image.
