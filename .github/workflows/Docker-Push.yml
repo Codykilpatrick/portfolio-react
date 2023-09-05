@@ -54,3 +54,8 @@ jobs:
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
+
+      - name: Pull and use Docker image
+        run: |
+          docker pull codykilpatrick/portfolio:${{ github.sha }}
+          docker run -d codykilpatrick/portfolio:${{ github.sha }} echo "Docker image test successful"
