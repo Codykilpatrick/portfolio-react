@@ -35,22 +35,23 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
 
-      - name: Restore Docker layers cache
-        uses: actions/cache@v2
-        with:
-          path: /tmp/.buildx-cache
-          key: ${{ runner.os }}-buildx-${{ github.sha }}
-          restore-keys: ${{ runner.os }}-buildx-
+      - name: Check if Docker image exists
+        id: check_image
+        run: |
+          IMAGE=codykilpatrick/portfolio:${{ github.sha }}
+          if docker manifest inspect $IMAGE &>/dev/null; then
+            echo "::set-output name=image_exists::true"
+          else
+            echo "::set-output name=image_exists::false"
+          fi
 
-      - name: Build and push
+      - name: Build and push Docker image
         id: docker_build
-        uses: docker/build-push-action@v4
-        with:
-          context: .
-          push: true
-          tags: codykilpatrick/portfolio:${{ github.sha }}
-          cache-from: type=local,src=/tmp/.buildx-cache
-          cache-to: type=local,dest=/tmp/.buildx-cache
+        run: |
+          if [[ "${{ steps.check_image.outputs.image_exists }}" == "false" ]]; then
+            docker build -t codykilpatrick/portfolio:${{ github.sha }} .
+            docker push codykilpatrick/portfolio:${{ github.sha }}
+          fi
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
