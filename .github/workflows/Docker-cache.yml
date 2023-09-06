@@ -11,6 +11,7 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Cache Docker Compose files and images
+      id: cache-docker-compose
       uses: actions/cache@v3
       with:
         path: |
@@ -19,8 +20,13 @@ jobs:
           compose.yaml
         key: ${{ runner.os }}-docker-compose-${{ hashFiles('**/Dockerfile', '**/docker-compose.yml') }}
 
+    - name: Set cache hit flag
+      run: echo "::set-output name=cache-hit::${{ steps.cache-docker-compose.outputs.cache-hit == 'true' }}"
+
     - name: Build Docker Compose project
       run: |
-        docker compose up -d
+        if [ "${{ steps.cache-docker-compose.outputs.cache-hit }}" == "false" ]; then
+          docker compose up -d
+        fi
       env:
         DOCKER_BUILDKIT: 1
