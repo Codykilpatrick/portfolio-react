@@ -1,0 +1,26 @@
+name: Cache Docker Compose Build
+
+on: push
+
+jobs:
+  cache:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Cache Docker Compose files and images
+      uses: actions/cache@v3
+      with:
+        path: |
+          ~/.docker
+          Dockerfile
+          compose.yaml
+        key: ${{ runner.os }}-docker-compose-${{ hashFiles('**/Dockerfile', '**/docker-compose.yml') }}
+
+    - name: Build Docker Compose project
+      run: |
+        docker compose up -d
+      env:
+        DOCKER_BUILDKIT: 1
