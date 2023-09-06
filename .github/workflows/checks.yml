@@ -1,0 +1,33 @@
+name: CI to Docker hub
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+  push:
+    branches:
+      - main
+
+jobs:
+  checks:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v4
+
+    - name: Pull Docker Compose image
+      run: |
+        docker-compose -f compose.yaml pull
+      env:
+        DOCKER_BUILDKIT: 1
+
+    - name: Run Docker Compose checks
+      run: |
+        docker-compose -f compose.yaml run --rm checks
+      env:
+        DOCKER_BUILDKIT: 1
