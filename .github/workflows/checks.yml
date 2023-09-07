@@ -19,10 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Add the npm install step to install project dependencies
-      - name: Install Node.js Dependencies
-        run: npm install
-
       # Add the step to run the Docker container
       - name: Run Docker Container
         run: |
