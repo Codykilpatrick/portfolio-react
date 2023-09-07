@@ -29,5 +29,9 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Run container
-        run: docker run -d -t ghcr.io/codykilpatrick/portfolio-react:latest
+        # Use Docker Compose to start your container
+      - name: Start Docker container
+        run: docker-compose up -d github-action-ghcr
+      - name: Run Tests
+        run: docker-compose exec -T github-action-ghcr yarn react-scripts test --watchAll=false
+        timeout-minutes: 2

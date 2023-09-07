@@ -10,3 +10,7 @@ services:
     image: codykilpatrick/portfolio:latest
     environment:
       NODE_ENV: production
+  github-action-ghcr:
+    image: ghcr.io/codykilpatrick/portfolio-react:latest
+    environment:
+      NODE_ENV: production
