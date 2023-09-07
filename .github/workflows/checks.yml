@@ -1,4 +1,4 @@
-name: CI to Docker hub
+name: Checks
 
 on:
   pull_request:
