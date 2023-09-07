@@ -1,8 +1,13 @@
 services:
-  server:
+  local:
     build:
       context: .
     environment:
-      NODE_ENV: production
+      NODE_ENV: development
     ports:
       - 3000:3000
+  github-action:
+    image: codykilpatrick/portfolio:latest
+    environment:
+      NODE_ENV: production
+    # You can specify any other configurations needed for GitHub Actions here
