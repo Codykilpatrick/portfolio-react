@@ -30,6 +30,8 @@ jobs:
       - name: pull
         run: |
           docker pull ghcr.io/codykilpatrick/portfolio-react:latest
+      - name: Start Docker container
+        run: docker-compose up -d
       - name: Run Tests
         run: docker-compose exec -T yarn react-scripts test --watchAll=false
         timeout-minutes: 2
