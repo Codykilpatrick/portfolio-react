@@ -30,7 +30,4 @@ jobs:
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: pull
-        run: |
-          docker pull ghcr.io/codykilpatrick/portfolio-react:latest
-      - name: Start Docker container
-        run: docker build portfolio-react:latest
+        run: docker compose up -d
