@@ -29,5 +29,5 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: pull
-        run: docker compose up -d
+      - name: Run container
+        run: docker run -d -t ghcr.io/codykilpatrick/portfolio-react:latest
