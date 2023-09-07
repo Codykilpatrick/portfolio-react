@@ -19,18 +19,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Add the step to run the Docker container
-      - name: Run Docker Container
-        run: |
-          docker run -d --name my_container -v "$(pwd)":/app -w /app codykilpatrick/portfolio:latest sleep infinity
+      # Add the npm install step to install project dependencies
+      - name: Install Node.js Dependencies
+        run: npm install
 
-      # Add a step to execute tests inside the running Docker container
+      # Add the step to pull your Docker image
+      - name: Pull Docker image
+        run: docker pull codykilpatrick/portfolio:latest
+
+      # Add a step to run tests inside a Docker container
       - name: Run Tests
         run: |
-          docker exec my_container sh -c "npm test" || (echo 'Tests failed' && exit 1)
-
-      # Cleanup: Stop and remove the Docker container
-      - name: Cleanup Docker Container
-        run: |
-          docker stop my_container
-          docker rm my_container
+          docker run --rm -v "$(pwd)":/app -w /app codykilpatrick/portfolio:latest \
+          sh -c "npm test" || (echo 'Tests failed' && exit 1)
