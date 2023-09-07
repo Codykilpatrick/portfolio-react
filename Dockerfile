@@ -25,6 +25,6 @@ COPY --chown=node:node . .
 USER node
 COPY --chown=node:node package.json .
 COPY --from=deps /usr/src/app/node_modules ./node_modules
-COPY --from=build /usr/src/app// .//
+COPY --from=build /usr/src/app// ./
 EXPOSE 3000
 CMD npm start
