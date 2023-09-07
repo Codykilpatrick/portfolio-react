@@ -22,4 +22,8 @@ jobs:
       # Use Docker Compose to start your container
       - name: Start Docker container
         run: docker-compose up -d github-action
-      
+
+      # Run tests in container
+      - name: Run Tests
+        run: docker-compose exec github-action npm test
+        timeout-minutes: 2
