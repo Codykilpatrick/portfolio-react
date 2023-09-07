@@ -19,14 +19,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Add the npm install step to install project dependencies
-      - name: Install Node.js Dependencies
-        run: npm install
-
-      # Add the step to pull your Docker image (if needed)
-      - name: Pull Docker image
-        run: docker pull codykilpatrick/portfolio:latest
-
       # Use Docker Compose to start your container
       - name: Start Docker container
         run: docker-compose up -d github-action
