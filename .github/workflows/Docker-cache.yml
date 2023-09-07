@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '**/Dockerfile'
-      - '**/compose.yml'
+      - '**/compose.yaml'
 
 jobs:
   docker:
