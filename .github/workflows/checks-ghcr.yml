@@ -31,5 +31,5 @@ jobs:
         run: |
           docker pull ghcr.io/codykilpatrick/portfolio-react:latest
       - name: Run Tests
-        run: docker-compose exec -T github-action yarn react-scripts test --watchAll=false
+        run: docker-compose exec -T yarn react-scripts test --watchAll=false
         timeout-minutes: 2
