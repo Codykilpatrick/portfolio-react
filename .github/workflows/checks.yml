@@ -25,5 +25,11 @@ jobs:
 
       # Run tests in container
       - name: Run Tests
-        run: docker-compose exec -T github-action npm test
+        run: |
+          if docker-compose exec -T github-action npm test; then
+            echo "Tests passed"
+          else
+            echo "Tests failed"
+            exit 1  # Exit with a non-zero code to indicate failure
+          fi
         timeout-minutes: 2
