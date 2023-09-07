@@ -25,5 +25,5 @@ jobs:
 
       # Run tests in container
       - name: Run Tests
-        run: docker-compose exec github-action npm test
+        run: docker-compose exec -T github-action npm test
         timeout-minutes: 2
