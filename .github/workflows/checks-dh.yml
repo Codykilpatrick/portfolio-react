@@ -19,11 +19,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
-      # Use Docker Compose to start your container
-      - name: Start Docker container
-        run: docker-compose up -d github-action
+      # Build Docker image from local Dockerfile
+      - name: Build Docker Image
+        run: docker build -t my-custom-image .
 
-      # Run tests in container
+      # Start Docker container using Docker Compose
+      - name: Start Docker container
+        run: docker-compose up -d
+
+      # Run tests in the Docker container
       - name: Run Tests
-        run: docker-compose exec -T github-action yarn react-scripts test --watchAll=false
+        run: docker-compose exec yarn react-scripts test --watchAll=false
         timeout-minutes: 2
