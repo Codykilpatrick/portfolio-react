@@ -33,4 +33,6 @@ jobs:
         run: |
           docker pull ghcr.io/codykilpatrick/portfolio-react:latest
       - name: Start Docker container
-        run: docker compose up -d
+        run: docker build codykilpatrick/portfolio-react:latest
+      - name: Start Docker container
+        run: docker build portfolio-react:latest
