@@ -30,5 +30,4 @@ jobs:
       # Add a step to run tests inside a Docker container
       - name: Run Tests
         run: |
-          docker run --rm -v "$(pwd)":/app -w /app codykilpatrick/portfolio:latest \
           sh -c "npm test"
