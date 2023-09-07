@@ -1,0 +1,29 @@
+name: GHCR Checks
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - reopened
+      - synchronize
+  push:
+    branches:
+      - main
+
+jobs:
+  compile:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      # Use Docker Compose to start your container
+      - name: Start Docker container
+        run: docker-compose up -d github-action
+
+      # Run tests in container
+      - name: Run Tests
+        run: docker-compose exec -T github-action yarn react-scripts test --watchAll=false
+        timeout-minutes: 2
