@@ -1,6 +1,10 @@
 name: Cache Docker Compose Build
 
-on: push
+on:
+  push:
+    paths:
+      - '**/Dockerfile'
+      - '**/docker-compose.yml'
 
 jobs:
   docker:
