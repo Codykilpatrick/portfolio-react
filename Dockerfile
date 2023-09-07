@@ -19,6 +19,8 @@ RUN --mount=type=bind,source=package.json,target=package.json \
 COPY . .
 RUN npm run build
 
+
+
 FROM base as final
 ENV NODE_ENV production
 COPY --chown=node:node . .
