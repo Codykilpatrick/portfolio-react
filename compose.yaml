@@ -10,3 +10,4 @@ services:
     image: codykilpatrick/portfolio:latest
     environment:
       NODE_ENV: production
+# TEST
