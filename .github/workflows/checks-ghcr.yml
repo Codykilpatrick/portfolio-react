@@ -30,9 +30,5 @@ jobs:
       - name: pull
         run: |
           docker pull ghcr.io/codykilpatrick/portfolio-react:latest
-      - name: Build Custom Docker Image
-        run: |
-          docker pull ghcr.io/codykilpatrick/portfolio-react:latest
-          docker commit $(docker create ghcr.io/codykilpatrick/portfolio-react:latest) my-custom-image
-        working-directory: /workspace
-        
+      - name: Start Docker container
+        run: docker compose up -d
