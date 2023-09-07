@@ -23,30 +23,16 @@ jobs:
       - name: Install Node.js Dependencies
         run: npm install
 
-      # Add the step to pull your Docker image
+      # Add the step to build your Docker image using Docker Compose
+      - name: Build Docker image
+        run: docker-compose build
+
+      # Add the step to pull your Docker image (if needed)
       - name: Pull Docker image
         run: docker pull codykilpatrick/portfolio:latest
 
-      # Add a step to run tests inside a Docker container
-      - name: Run Tests
-        run: |
-          docker run --rm -v "$(pwd)":/app -w /app codykilpatrick/portfolio:latest \
-          sh -c "npm test"
-          test_exit_code=$?
-          if [ $test_exit_code -eq 0 ]; then
-            echo 'Tests passed'
-          else
-            echo 'Tests failed'
-            exit 1
-          fi
+      # Your other steps go here...
 
-      # Display the exit code for debugging purposes
-      - name: Display Exit Code
-        run: |
-          echo "Exit code from the tests: $test_exit_code"
-
-      # Cleanup: Stop and remove the Docker container
-      - name: Cleanup Docker Container
-        run: |
-          docker stop my_container
-          docker rm my_container
+      # For example, you can start your Docker container with Docker Compose
+      - name: Start Docker container
+        run: docker-compose up -d
