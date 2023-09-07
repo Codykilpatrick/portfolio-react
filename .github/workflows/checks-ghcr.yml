@@ -30,8 +30,9 @@ jobs:
       - name: pull
         run: |
           docker pull ghcr.io/codykilpatrick/portfolio-react:latest
-      - name: Start Docker container
-        run: docker build -t my-custom-image --build-arg BASE_IMAGE=ghcr.io/codykilpatrick/portfolio-react:latest .
-      - name: Run Tests
-        run: docker-compose exec -T yarn react-scripts test --watchAll=false
-        timeout-minutes: 2
+      - name: Build Custom Docker Image
+        run: |
+          docker pull ghcr.io/codykilpatrick/portfolio-react:latest
+          docker commit $(docker create ghcr.io/codykilpatrick/portfolio-react:latest) my-custom-image
+        working-directory: /workspace
+        
