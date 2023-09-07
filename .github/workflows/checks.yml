@@ -24,8 +24,8 @@ jobs:
         run: npm install
 
       # Add the step to pull your Docker image
-      - name: Pull Docker image
-        run: docker pull codykilpatrick/portfolio:latest
+      # - name: Pull Docker image
+      #   run: docker pull codykilpatrick/portfolio:latest
 
       # Add a step to run tests inside a Docker container
       - name: Run Tests
