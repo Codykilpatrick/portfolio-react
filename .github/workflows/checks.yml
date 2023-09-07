@@ -25,11 +25,5 @@ jobs:
 
       # Run tests in container
       - name: Run Tests
-        run: |
-          if docker-compose exec -T github-action yarn react-scripts test --watchAll=false; then
-            echo "Tests passed"
-          else
-            echo "Tests failed"
-            exit 1  # Exit with a non-zero code to indicate failure
-          fi
+        run: docker-compose exec -T github-action yarn react-scripts test --watchAll=false
         timeout-minutes: 2
