@@ -1,6 +1,8 @@
 name: Commit on push
-on: push
-
+on:
+  push:
+    branches:
+      - main
 jobs:
   run:
     name: Add a text file
