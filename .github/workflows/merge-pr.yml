@@ -1,6 +1,8 @@
 name: Commit on push
-on: push
-
+on:
+  push:
+    branches:
+      - main
 jobs:
   run:
     name: Add a text file
@@ -20,4 +22,4 @@ jobs:
         with:
           message: 'Add the very useful text file'
           add: '*.txt --force'
-          cwd: './pathToRepo/'
+          cwd: '.'
