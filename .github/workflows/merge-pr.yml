@@ -20,4 +20,4 @@ jobs:
         with:
           message: 'Add the very useful text file'
           add: '*.txt --force'
-          cwd: './pathToRepo/'
+          cwd: '.'
